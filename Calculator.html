@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(140deg, #0f172a 0%, #1e3a8a 50%, #0d9488 100%);
+            font-family: Arial;
+        }
+
+        #main {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            width: 280px;
+            height: 400px;
+        }
+
+        input {
+            width: 250px;
+            height: 60px;
+            font-size: 22px;
+            margin-bottom: 40px;
+            margin-top: 10px;
+            margin-left: 10px;
+            text-align: right;
+            border: none;
+            border-radius: 8px;
+            padding-right: 10px;
+            color: antiquewhite;
+        }
+
+        .btn {
+            width: 55px;
+            height: 45px;
+            margin: 4px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        h1 {
+            display: flex;
+
+        }
+
+        .op {
+            background: #0d9488;
+            color: white;
+        }
+
+        .clr {
+            background: #b91c1c;
+            color: white;
+        }
+
+        .eq {
+            background: #2563eb;
+            color: white;
+            width: 55px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+
+        <input type="text" id="display" disabled>
+
+        <button class="btn clr" onclick="clearAll()">C</button>
+        <button class="btn op" onclick="addValue('%')">%</button>
+        <button class="btn op" onclick="addValue('*')">×</button>
+        <button class="btn op" onclick="addValue('/')">÷</button>
+
+
+        <br>
+
+        <button class="btn" onclick="addValue('7')">7</button>
+        <button class="btn" onclick="addValue('8')">8</button>
+        <button class="btn" onclick="addValue('9')">9</button>
+        <button class="btn op" onclick="addValue('-')">−</button>
+
+        <br>
+
+        <button class="btn" onclick="addValue('4')">4</button>
+        <button class="btn" onclick="addValue('5')">5</button>
+        <button class="btn" onclick="addValue('6')">6</button>
+        <button class="btn op" onclick="addValue('+')">+</button>
+
+
+        <br>
+
+        <button class="btn" onclick="addValue('1')">1</button>
+        <button class="btn" onclick="addValue('2')">2</button>
+        <button class="btn" onclick="addValue('3')">3</button>
+        <button class="btn op" onclick="addValue('**')">**</button>
+        <br>
+        <button class="btn" onclick="addValue('00')">00</button>
+        <button class="btn" onclick="addValue('0')">0</button>
+        <button class="btn" onclick="addValue('.')">.</button>
+        <button class="btn eq" onclick="calculate()">=</button>
+    </div>
+
+    <script>
+        function addValue(val) {
+            let display = document.getElementById("display");
+            display.value += val;
+        }
+
+        function calculate() {
+            let display = document.getElementById("display");
+            let exp = display.value;
+
+            if (exp === "") {
+                alert("please enter the value first");
+                return;
+            }
+
+            try {
+                let result = eval(exp);
+
+                if (!isFinite(result)) {
+                    alert("Math Error");
+                } else {
+                    display.value = result;
+                }
+
+            } catch (e) {
+                alert("Invalid Input");
+            }
+        }
+
+        function clearAll() {
+            document.getElementById("display").value = "";
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
