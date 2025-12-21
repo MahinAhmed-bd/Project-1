@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Webpage</title>
+    <title>MahinExpress</title>
 
     <style>
         body {
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("img.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+
         }
 
         .header {
@@ -17,38 +23,80 @@
             align-items: center;
             position: relative;
             padding: 10px 20px;
-            background-color: #02162E;
+            background: #02162E;
         }
 
         .header img {
-            width: 60px;
-            height: auto;
+            width: 70px;
+            padding-left: 30px;
+            width: 90px;
         }
 
         .title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            flex: 1;
             text-align: center;
         }
 
         .title p {
             margin: 0;
-            font-size: 22px;
+            font-size: 35px;
             font-weight: bold;
+            background: linear-gradient(90deg, #b8860b, #ffd700, #fff1a8, #ffd700, #b8860b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .title span {
             display: block;
-            font-size: 14px;
-            font-weight: normal;
+            font-size: 13px;
+            background: linear-gradient(90deg, #c9a227, #ffe27a, #c9a227);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .container {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+
+
+        .sidebar {
+            width: 220px;
+            background: #1e293b;
+            box-shadow: 0 0 20px;
+            padding-top: 20px;
+            height: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #e5e7eb;
+            font-size: 23px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #1e293b;
+            color: #ffd700;
+            padding-left: 30px;
+        }
+
+
+        .content {
+            flex: 1;
+            padding: 20px;
         }
     </style>
 </head>
 
 <body>
+
+
     <div class="header">
-        <img src="img1.jpeg" alt="Logo" id="logo">
+        <img src="img1.jpeg" alt="Logo">
 
         <div class="title">
             <p>MahinExpress
@@ -56,6 +104,28 @@
             </p>
         </div>
     </div>
+
+
+    <div class="container">
+
+
+        <div class="sidebar">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Calculator</a>
+            <a href="#">Login Form</a>
+            <a href="#">Registration Form</a>
+            <a href="#">Learn More</a>
+        </div>
+
+
+        <div class="content">
+            <h2>Welcome to MahinExpress</h2>
+            <p>Select an option from the sidebar.</p>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
