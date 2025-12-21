@@ -4,48 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AITVET</title>
-    <link rel="stylesheet" href="webpage.css">
+    <title>A Webpage</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 10px 20px;
+            background-color: #02162E;
+        }
+
+        .header img {
+            width: 60px;
+            height: auto;
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .title p {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .title span {
+            display: block;
+            font-size: 14px;
+            font-weight: normal;
+        }
+    </style>
 </head>
 
 <body>
-
     <div class="header">
+        <img src="img1.jpeg" alt="Logo" id="logo">
 
-        <img src="image.jpg" class="logo-img">
-        <div class="logo-text">
-            Ahsanullah Institute of Technical & Vocational Education & Training (AITVET)
+        <div class="title">
+            <p>MahinExpress
+                <span>Fast & Reliable Online Shopping</span>
+            </p>
         </div>
     </div>
-
-    <div class="layout">
-
-        <div class="menu">
-            <div onclick="loadHome()">Home</div>
-            <div onclick="loadAbout()">About Us</div>
-            <div onclick="loadCourses()">Our Courses</div>
-            <div onclick="loadContact()">Contact Us</div>
-        </div>
-
-        <div class="main-content" id="content">
-            <div class="hero">
-                <div class="hero-content">
-                    <p>DO YOU NEED ANY HELP?</p>
-                    <h1>WELCOME TO OUR<br>INSTITUTE</h1>
-                    <button>READ MORE</button>
-                </div>
-
-                <div class="hero-boxes">
-                    <div class="box">Business Courses</div>
-                    <div class="box">Travel & Tourism</div>
-                    <div class="box">Fashion Courses</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
