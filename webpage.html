@@ -57,7 +57,7 @@
 
         .container {
             display: flex;
-            height: calc(100vh - 80px);
+            height: 100vh;
         }
 
 
@@ -88,6 +88,15 @@
         .content {
             flex: 1;
             padding: 20px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            color: aliceblue;
+        }
+
+        .content:hover {
+            color: #ffd700;
         }
     </style>
 </head>
@@ -121,6 +130,7 @@
 
         <div class="content">
             <h2>Welcome to MahinExpress</h2>
+
             <p>Select an option from the sidebar.</p>
         </div>
 
