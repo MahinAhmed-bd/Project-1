@@ -115,22 +115,29 @@
 
 
         <div class="sidebar">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Calculator</a>
-            <a href="#">Login Form</a>
+            <a href="#" onclick="showHome()">Home</a>
+            <a href="Calculator.html">Calculator</a>
+            <a href="LogInform.html">Login Form</a>
+            <a href="#">About Me</a>
             <a href="#">Learn More</a>
         </div>
 
 
         <div class="content">
-            <h2>Welcome to MahinExpress</h2>
+            <h2 id="welcomeText">Welcome to MahinExpress</h2>
 
             <p>Select an option from the sidebar.</p>
         </div>
 
     </div>
-
+    <script>
+        function showHome() {
+            const welcomeText = document.getElementById('welcomeText');
+            if (welcomeText) {
+                welcomeText.innerText = "Hello";
+            }
+        }
+    </script>
 </body>
 
 </html>
