@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(140deg, #0f172a 0%, #1e3a8a 50%, #0d9488 100%);
+            color: #e5e7eb;
+        }
+
+        #login {
+            height: 380px;
+            width: 340px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            border-radius: 5px;
+            height: 30px;
+            width: 260px;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e5e7eb;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px 10px;
+        }
+
+        input::placeholder {
+            color: #9b93c9;
+        }
+
+        button {
+            background: rgba(110, 24, 24, 0.25);
+            border: none;
+            width: 100px;
+            height: 40px;
+            margin-top: 20px;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        a {
+            color: #480dd3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #p1 {
+
+            margin-top: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="login">
+        <div id="loginForm" class="form-section active">
+            <h2>Login Here</h2>
+            <input type="text" id="loginEmail" placeholder="Enter your email">
+            <input type="password" id="loginPassword" placeholder="Enter your password">
+            <button onclick="loginValidate()">Log In</button>
+            <p id="p1">Don't have an account? <a href="#" onclick="showRegister()">Register Now</a></p>
+        </div>
+
+        <div id="registerForm" class="form-section">
+            <h2>Register Here</h2>
+            <input type="text" id="regName" placeholder="Enter your name">
+            <input type="text" id="regEmail" placeholder="Enter your email">
+            <input type="password" id="regPassword" placeholder="Enter password">
+            <input type="password" id="regRePassword" placeholder="Retype password">
+            <button onclick="registerValidate()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login Here</a></p>
+        </div>
+    </div>
+
+    <script>
+        function showRegister() {
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('registerForm').classList.add('active');
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+        }
+
+        function showLogin() {
+            document.getElementById('registerForm').classList.remove('active');
+            document.getElementById('loginForm').classList.add('active');
+            document.getElementById('regName').value = '';
+            document.getElementById('regEmail').value = '';
+            document.getElementById('regPassword').value = '';
+            document.getElementById('regRePassword').value = '';
+        }
+
+        function loginValidate() {
+            var email = document.getElementById('loginEmail').value.trim();
+            var password = document.getElementById('loginPassword').value.trim();
+
+            if (email === "" && password === "") { alert("Enter email and password"); return; }
+            if (email === "") { alert("Enter email"); return; }
+            if (password === "") { alert("Enter password"); return; }
+            if (email !== "mahin123@gmail.com") { alert("Incorrect email"); return; }
+            if (password !== "123456") { alert("Incorrect password"); return; }
+            alert("Login Successful");
+        }
+
+        function registerValidate() {
+            var name = document.getElementById('regName').value.trim();
+            var email = document.getElementById('regEmail').value.trim();
+            var pass = document.getElementById('regPassword').value.trim();
+            var repass = document.getElementById('regRePassword').value.trim();
+
+            if (name === "") { alert("Enter your name"); return; }
+            if (!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email)) { alert("Invalid email"); return; }
+            if (pass.length < 6) { alert("Password must be at least 6 chars"); return; }
+            if (pass !== repass) { alert("Passwords do not match"); return; }
+
+            alert("Registration Successful");
+        }
+    </script>
+
+</body>
+
+</html>
