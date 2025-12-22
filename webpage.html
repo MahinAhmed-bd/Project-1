@@ -10,9 +10,7 @@
         body {
             margin: 0;
             font-family: Arial;
-            background: url("img.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
+            background: linear-gradient(140deg, #0f172a 0%, #0a205e 50%, #0d9488 100%);
             height: 100vh;
             color: #e5e7eb;
         }
@@ -87,28 +85,66 @@
         }
 
         #loginBox {
-            width: 320px;
+            margin: 0 auto;
+            height: 400px;
+            width: 370px;
             background: rgba(255, 255, 255, 0.08);
-            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
         }
 
         input {
-            width: 90%;
-            padding: 8px;
-            margin-top: 10px;
-            border-radius: 6px;
-            border: none;
+            border-radius: 5px;
+            height: 35px;
+            width: 250px;
+            display: flex;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e5e7eb;
+            margin-top: 15px;
+        }
+
+        #loginPassword {
+            margin-top: 30px;
+        }
+
+        #loginEmail {
+            display: block;
+            margin-top: 40px;
+        }
+
+        #loginEmail::placeholder,
+        #loginPassword::placeholder {
+            color: #9b93c9;
+            padding-left: 10px;
         }
 
         #button1 {
-            margin-top: 12px;
-            padding: 10px 18px;
-            border-radius: 8px;
+            background: rgba(110, 24, 24, 0.25);
             border: none;
-            cursor: pointer;
-            background: #ffd700;
-            font-weight: bold;
+            width: 85px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-top: 45px;
+            font-weight: 600;
+            display: flex;
+        }
+
+        #p2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #sp1 {
+            text-decoration: none;
+            color: #480dd3;
+            padding: 2px;
         }
 
         a {
@@ -194,8 +230,23 @@
                     <h2>Login</h2>
                     <input id="loginEmail" placeholder="Email">
                     <input id="loginPassword" type="password" placeholder="Password">
-                    <button onclick="loginValidate()">Login</button>
+                    <button id="button1" onclick="loginValidate()">Login</button>
+                    <p id="p2">Don't have an account? <span id="sp1"><a href="#" onclick="showRegister()">Register
+                                Now</a>
+                        </span></p>
                 </div>
+            </div>
+            <div id="reg" class="section">
+                <form onsubmit="return validate()">
+                    <h3>Registation form</h3>
+
+                    <input type="text" id="i1" placeholder="Enter your name">
+                    <input type="text" id="i2" placeholder="Enter your email">
+                    <input type="password" id="pass" placeholder="password">
+                    <input type="password" id="repass" placeholder="Retype password">
+                    <button type="submit">submit</button>
+
+                </form>
             </div>
 
             <div id="calc" class="section">
@@ -246,6 +297,39 @@
             hideAll();
             document.getElementById('login').classList.add('active');
         }
+        function showRegister() {
+            hideAll();
+            document.getElementById('reg').classList.add('active');
+        }
+        function validate() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (email === "" && password === "") {
+                alert("Please enter email and password");
+                return false;
+            }
+            else if (email === "") {
+                alert("Please enter email");
+                return false;
+            }
+            else if (password === "") {
+                alert("Please enter password");
+                return false;
+            }
+            else if (email !== "mahin123@gmail.com") {
+                alert("Please enter correct email");
+                return false;
+            }
+            else if (password !== "123456") {
+                alert("Please enter correct password");
+                return false;
+            }
+            else {
+                alert("Log In Successfully");
+                return true;
+            }
+        }
 
         function showCalculator() {
             hideAll();
@@ -290,6 +374,28 @@
                 alert("Invalid Input");
             }
         }
+        function validate() {
+            var name = document.getElementById('i1').value;
+            var email = document.getElementById('i2').value;
+            var pass = document.getElementById('pass').value;
+            var repass = document.getElementById('repass').value;
+
+            if (name === "" || email === "" || pass === "" || repass === "") {
+                alert("Enter all information first");
+                return false;
+            }
+
+            if (pass !== repass) {
+                alert("Password does not match");
+                return false;
+            }
+
+            alert("Registration Successful");
+            showLogin();
+            return false;
+        }
+
+
     </script>
 
 </body>
