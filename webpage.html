@@ -124,19 +124,25 @@
 
 
         <div class="content">
-            <h2 id="welcomeText">Welcome to MahinExpress</h2>
-
-            <p>Select an option from the sidebar.</p>
+            <h2 id="heading">Welcome to MahinExpress</h2>
+            <h4 id="op">Select an option from the sidebar.</h4>
         </div>
 
     </div>
     <script>
         function showHome() {
-            const welcomeText = document.getElementById('welcomeText');
-            if (welcomeText) {
-                welcomeText.innerText = "Hello";
+            let heading = document.getElementById('heading');
+            let op = document.getElementById('op');
+
+            if (heading) {
+                heading.innerText = "Hello Sir/Mam";
+            }
+
+            if (op) {
+                op.innerText = "Stop scrolling. Start shopping. Your future self will thank you. Shop smart. Shop fast. Shop with MahinExpress.";
             }
         }
+
     </script>
 </body>
 
