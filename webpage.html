@@ -9,27 +9,23 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url("img.jpg");
-            background-size: cover;
-            background-position: center;
+            font-family: Arial;
+            background: url("img.jpg");
             background-repeat: no-repeat;
+            background-size: cover;
             height: 100vh;
-
+            color: #e5e7eb;
         }
 
         .header {
             display: flex;
             align-items: center;
-            position: relative;
             padding: 10px 20px;
             background: #02162E;
         }
 
         .header img {
-            width: 70px;
-            padding-left: 30px;
-            width: 90px;
+            width: 80px;
         }
 
         .title {
@@ -39,112 +35,242 @@
 
         .title p {
             margin: 0;
-            font-size: 35px;
+            font-size: 30px;
             font-weight: bold;
-            background: linear-gradient(90deg, #b8860b, #ffd700, #fff1a8, #ffd700, #b8860b);
+            background: linear-gradient(90deg, #b8860b, #ffd700);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .title span {
-            display: block;
             font-size: 13px;
-            background: linear-gradient(90deg, #c9a227, #ffe27a, #c9a227);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffd700;
         }
-
 
         .container {
             display: flex;
-            height: 100vh;
+            height: calc(100vh - 90px);
         }
-
 
         .sidebar {
             width: 220px;
             background: #1e293b;
-            box-shadow: 0 0 20px;
-            padding-top: 20px;
-            height: auto;
         }
 
         .sidebar a {
             display: block;
-            padding: 12px 20px;
+            padding: 14px 20px;
             text-decoration: none;
             color: #e5e7eb;
-            font-size: 23px;
-            transition: 0.3s;
+            font-size: 20px;
         }
 
         .sidebar a:hover {
-            background: #1e293b;
+            background: #334155;
             color: #ffd700;
-            padding-left: 30px;
         }
-
 
         .content {
             flex: 1;
-            padding: 20px;
+            display: flex;
             justify-content: center;
             align-items: center;
-            display: flex;
-            flex-direction: column;
-            color: aliceblue;
+        }
+
+        .section {
+            display: none;
+            text-align: center;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        #loginBox {
+            width: 320px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: #ffd700;
+            font-weight: bold;
+        }
+
+        a {
+            color: #ffd700;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #calculator {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            width: 280px;
+        }
+
+        #display {
+            width: 250px;
+            height: 55px;
+            font-size: 22px;
+            text-align: right;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: none;
+            padding-right: 10px;
+        }
+
+        .btn {
+            width: 55px;
+            height: 45px;
+            margin: 4px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .op {
+            background: #0d9488;
+            color: white;
+        }
+
+        .clr {
+            background: #b91c1c;
+            color: white;
+        }
+
+        .eq {
+            background: #2563eb;
+            color: white;
         }
     </style>
 </head>
 
 <body>
 
-
     <div class="header">
-        <img src="img1.jpeg" alt="Logo">
-
+        <img src="img1.jpeg">
         <div class="title">
-            <p>MahinExpress
-                <span>Fast & Reliable Online Shopping</span>
-            </p>
+            <p>MahinExpress</p>
+            <span>Fast & Reliable Online Shopping</span>
         </div>
     </div>
-
 
     <div class="container">
 
-
         <div class="sidebar">
-            <a href="#" onclick="showHome()">Home</a>
-            <a href="Calculator.html">Calculator</a>
-            <a href="LogInform.html">Login Form</a>
-            <a href="#">About Me</a>
-            <a href="#">Learn More</a>
+            <a onclick="showHome()">Home</a>
+            <a onclick="showLogin()">Login</a>
+            <a onclick="showCalculator()">Calculator</a>
+            <a>About Me</a>
+            <a>Learn More!</a>
         </div>
-
 
         <div class="content">
-            <h2 id="heading">Welcome to MahinExpress</h2>
-            <h4 id="op">Select an option from the sidebar.</h4>
-        </div>
 
+            <div id="home" class="section active">
+                <h1>Welcome to MahinExpress</h1>
+                <p>Stop scrolling. Start shopping.<br>Shop smart. Shop fast.</p>
+            </div>
+
+            <div id="login" class="section">
+                <div id="loginBox">
+                    <h2>Login</h2>
+                    <input id="loginEmail" placeholder="Email">
+                    <input id="loginPassword" type="password" placeholder="Password">
+                    <button onclick="loginValidate()">Login</button>
+                </div>
+            </div>
+
+            <div id="calc" class="section">
+                <div id="calculator">
+                    <input type="text" id="display" disabled><br>
+
+                    <button class="btn clr" onclick="clearAll()">C</button>
+                    <button class="btn op" onclick="addValue('%')">%</button>
+                    <button class="btn op" onclick="addValue('*')">×</button>
+                    <button class="btn op" onclick="addValue('/')">÷</button><br>
+
+                    <button class="btn" onclick="addValue('7')">7</button>
+                    <button class="btn" onclick="addValue('8')">8</button>
+                    <button class="btn" onclick="addValue('9')">9</button>
+                    <button class="btn op" onclick="addValue('-')">−</button><br>
+
+                    <button class="btn" onclick="addValue('4')">4</button>
+                    <button class="btn" onclick="addValue('5')">5</button>
+                    <button class="btn" onclick="addValue('6')">6</button>
+                    <button class="btn op" onclick="addValue('+')">+</button><br>
+
+                    <button class="btn" onclick="addValue('1')">1</button>
+                    <button class="btn" onclick="addValue('2')">2</button>
+                    <button class="btn" onclick="addValue('3')">3</button>
+                    <button class="btn op" onclick="addValue('**')">**</button><br>
+
+                    <button class="btn" onclick="addValue('0')">0</button>
+                    <button class="btn" onclick="addValue('.')">.</button>
+                    <button class="btn eq" onclick="calculate()">=</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script>
+        function hideAll() {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        }
+
         function showHome() {
-            let heading = document.getElementById('heading');
-            let op = document.getElementById('op');
+            hideAll();
+            home.classList.add('active');
+        }
 
-            if (heading) {
-                heading.innerText = "Hello Sir/Mam";
-            }
+        function showLogin() {
+            hideAll();
+            login.classList.add('active');
+        }
 
-            if (op) {
-                op.innerText = "Stop scrolling. Start shopping. Your future self will thank you. Shop smart. Shop fast. Shop with MahinExpress.";
+        function showCalculator() {
+            hideAll();
+            calc.classList.add('active');
+        }
+
+        function loginValidate() {
+            if (loginEmail.value === "mahin123@gmail.com" && loginPassword.value === "123456") {
+                alert("Login Successful");
+                showHome();
+            } else {
+                alert("Wrong Email or Password");
             }
         }
 
+        function addValue(val) { display.value += val; }
+        function clearAll() { display.value = ""; }
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                alert("Invalid Input");
+            }
+        }
     </script>
+
 </body>
 
 </html>
