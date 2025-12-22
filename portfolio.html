@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        .about-section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-container {
+            width: 85%;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 320px;
+            border-radius: 10px;
+        }
+
+        .about-content h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .about-content h1 {
+            font-size: 60px;
+            color: #222;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .about-content p {
+            max-width: 500px;
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            margin-bottom: 8px;
+        }
+
+        .info span {
+            color: #aaa;
+            display: inline-block;
+            width: 120px;
+        }
+
+
+        .projects {
+            margin: 25px 0;
+            font-size: 20px;
+        }
+
+        .projects span {
+            color: #ffb400;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        .btn {
+            padding: 12px 28px;
+            background: #ffb400;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="about-section">
+        <div class="about-container">
+
+
+            <div class="about-img">
+                <img src="Picture101.jpg" alt="Mahin">
+            </div>
+
+
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>
+                    I am a passionate Computer Science student and aspiring web developer.
+                    I love creating clean, modern, and user-friendly websites.
+                </p>
+
+                <div class="info"><span>Name:</span> Mahin Ahmed</div>
+                <div class="info"><span>Date of Birth:</span>10.12.2007</div>
+                <div class="info"><span>Address:</span>Naogaon,Rajshahi,Bangladesh</div>
+                <div class="info"><span>Email:</span> mahintahmed@email.com</div>
+                <div class="info"><span>Phone:</span> +8801309879520</div>
+
+                <div class="projects">
+                    <span>15+</span> Projects Completed
+                </div>
+
+                <button class="btn" onclick="">Download CV</button>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
