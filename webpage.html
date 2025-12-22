@@ -37,7 +37,7 @@
             margin: 0;
             font-size: 30px;
             font-weight: bold;
-            background: linear-gradient(90deg, #b8860b, #ffd700);
+            background: linear-gradient(180deg, #FFD700, #FFC107, #FFB300);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -101,7 +101,7 @@
             border: none;
         }
 
-        button {
+        #button1 {
             margin-top: 12px;
             padding: 10px 18px;
             border-radius: 8px;
@@ -133,6 +133,7 @@
             border-radius: 8px;
             border: none;
             padding-right: 10px;
+            color: #e5e7eb;
         }
 
         .btn {
@@ -175,18 +176,17 @@
     <div class="container">
 
         <div class="sidebar">
-            <a onclick="showHome()">Home</a>
+            <a onclick="showHome(); updateHome()">Home</a>
             <a onclick="showLogin()">Login</a>
             <a onclick="showCalculator()">Calculator</a>
-            <a>About Me</a>
+            <a href="portfolio.html">About Me</a>
             <a>Learn More!</a>
         </div>
 
         <div class="content">
-
             <div id="home" class="section active">
-                <h1>Welcome to MahinExpress</h1>
-                <p>Stop scrolling. Start shopping.<br>Shop smart. Shop fast.</p>
+                <h1 id="header1">Welcome to MahinExpress</h1>
+                <p id="op">Stop scrolling. Start shopping.<br>Shop smart. Shop fast.</p>
             </div>
 
             <div id="login" class="section">
@@ -221,7 +221,7 @@
                     <button class="btn" onclick="addValue('2')">2</button>
                     <button class="btn" onclick="addValue('3')">3</button>
                     <button class="btn op" onclick="addValue('**')">**</button><br>
-
+                    <button class="btn" onclick="addValue('00')">00</button>
                     <button class="btn" onclick="addValue('0')">0</button>
                     <button class="btn" onclick="addValue('.')">.</button>
                     <button class="btn eq" onclick="calculate()">=</button>
@@ -229,6 +229,7 @@
             </div>
 
         </div>
+
     </div>
 
     <script>
@@ -238,30 +239,50 @@
 
         function showHome() {
             hideAll();
-            home.classList.add('active');
+            document.getElementById('home').classList.add('active');
         }
 
         function showLogin() {
             hideAll();
-            login.classList.add('active');
+            document.getElementById('login').classList.add('active');
         }
 
         function showCalculator() {
             hideAll();
-            calc.classList.add('active');
+            document.getElementById('calc').classList.add('active');
+        }
+
+        function updateHome() {
+            const heading = document.getElementById('header1');
+            const paragraph = document.getElementById('op');
+
+            if (heading) heading.innerText = "Call to Action";
+            if (paragraph) paragraph.innerHTML = "Stop scrolling. Start shopping.<br>Your future self will thank you.<br>Shop smart. Shop fast. Shop MahinExpress.";
         }
 
         function loginValidate() {
-            if (loginEmail.value === "mahin123@gmail.com" && loginPassword.value === "123456") {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (email === "mahin123@gmail.com" && password === "123456") {
                 alert("Login Successful");
                 showHome();
+                updateHome();
             } else {
                 alert("Wrong Email or Password");
             }
         }
 
-        function addValue(val) { display.value += val; }
-        function clearAll() { display.value = ""; }
+        const display = document.getElementById('display');
+
+        function addValue(val) {
+            display.value += val;
+        }
+
+        function clearAll() {
+            display.value = "";
+        }
+
         function calculate() {
             try {
                 display.value = eval(display.value);
