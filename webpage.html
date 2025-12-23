@@ -222,6 +222,56 @@
             background: #2563eb;
             color: white;
         }
+
+        .footer {
+            background: #02162E;
+            color: #e5e7eb;
+            padding-top: 30px;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px 20px;
+        }
+
+        .footer-section {
+            max-width: 260px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .footer-section p {
+            font-size: 25px;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #e5e7eb;
+            font-size: 14px;
+            margin: 6px 0;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: #ffd700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 5px;
+            background: #011022;
+            font-size: 25px;
+            color: #9ca3af;
+        }
     </style>
 </head>
 
@@ -308,6 +358,29 @@
         </div>
 
     </div>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h3>MahinExpress</h3>
+                <p>Fast & Reliable Online Shopping Platform.<br>
+                    Shop smart. Shop fast.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: mahin123@gmail.com</p>
+                <p>Phone: +8801309879520</p>
+                <p>Location: Bangladesh</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 MahinExpress | All Rights Reserved
+        </div>
+    </footer>
+
 
     <script>
         function hideAll() {
@@ -379,7 +452,7 @@
                 showHome();
                 updateHome();
             } else {
-                alert("Wrong Email or Password");
+                alert("Enter Email and Password");
             }
         }
 
