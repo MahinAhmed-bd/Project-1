@@ -9,6 +9,7 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial;
             background: linear-gradient(140deg, #0f172a 0%, #0a205e 50%, #0d9488 100%);
             height: 100vh;
@@ -82,6 +83,13 @@
 
         .section.active {
             display: block;
+        }
+
+        #about.section.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 40px;
         }
 
         #reg {
@@ -223,6 +231,71 @@
             color: white;
         }
 
+        #about-img img {
+            width: 320px;
+            border-radius: 10px;
+        }
+
+        #about-content #pp {
+            max-width: 500px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        #info {
+            margin-bottom: 8px;
+            padding-left: ;
+        }
+
+        #info #sp2 {
+            color: #aaa;
+            display: inline-block;
+            width: 120px;
+        }
+
+        #about-content {
+            text-align: left;
+        }
+
+        #projects {
+            margin: 25px 0;
+            font-size: 20px;
+        }
+
+        #projects #sp3 {
+            color: #ffb400;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        #about-section {
+            background: transparent;
+            min-height: auto;
+            padding: 40px 0;
+        }
+
+        #about-container {
+            width: 85%;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        #about-content h2 {
+            color: #ffd700;
+        }
+
+        .btn3 {
+            padding: 12px 28px;
+            background: #ffb400;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+
         .footer {
             background: #02162E;
             color: #e5e7eb;
@@ -289,9 +362,9 @@
 
         <div class="sidebar">
             <a onclick="showHome(); updateHome()">Home</a>
+            <a onclick="showAbout()">About Me</a>
             <a onclick="showLogin()">Login</a>
             <a onclick="showCalculator()">Calculator</a>
-            <a href="portfolio.html">About Me</a>
             <a>Learn More!</a>
         </div>
 
@@ -300,7 +373,37 @@
                 <h1 id="header1">Welcome to MahinExpress</h1>
                 <p id="op">Stop scrolling. Start shopping.<br>Shop smart. Shop fast.</p>
             </div>
+            <div id="about" class="section">
+                <section id="about-section">
+                    <div id="about-container">
 
+                        <div id="about-img">
+                            <img src="Picture101.jpg" alt="Mahin">
+                        </div>
+
+                        <div id="about-content">
+                            <h2>About Me</h2>
+                            <p id="pp">
+                                I am a passionate Computer Science student and aspiring web developer.
+                                I love creating clean, modern, and user-friendly websites.
+                            </p>
+
+                            <div id="info"><span id="sp2">Name:</span> Mahin Ahmed</div>
+                            <div id="info"><span id="sp2">Date of Birth:</span>12.10.2007</div>
+                            <div id="info"><span id="sp2">Address:</span>Naogaon, Rajshahi, Bangladesh</div>
+                            <div id="info"><span id="sp2">Email:</span>mahintaskinff@email.com</div>
+                            <div id="info"><span id="sp2">Phone:</span>01309879520</div>
+
+                            <div id="projects">
+                                <span id="sp3">2+</span> Projects Completed
+                            </div>
+
+                            <button class="btn3">Download CV</button>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
             <div id="login" class="section">
                 <div id="loginBox">
                     <h2>Login</h2>
@@ -383,6 +486,10 @@
 
 
     <script>
+        function showAbout() {
+            hideAll();
+            document.getElementById('about').classList.add('active');
+        }
         function hideAll() {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         }
