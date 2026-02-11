@@ -1,27 +1,86 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #1e1e1e;
     font-family: sans-serif;
     color: #a0a0a0;
     line-height: 1.6;
 }
-.main{
+/*             Main Content Area              */
+.main {
     display: grid;
     grid-template-columns: 350px 1fr;
     max-width: 1200px;
     gap: 45px;
     margin: auto;
-    padding-top: 40px ;
+    padding-top: 40px;
 }
-.sidebar{
+
+.sidebar {
+    height: 90vh;
+    background-color: #2a2a2a;
+    padding: 40px;
+}
+
+.content {
     height: 90vh;
     background-color: #2a2a2a;
 }
-.content{
-    height: 90vh;
-    background-color: #2a2a2a;
+
+
+/*                    Profile            */
+
+.profile {
+    text-align: center;
 }
+
+.profile_img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 1px solid #3a3a3a;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.profile h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+.profile p {
+    background-color: #1e1e1e;
+    padding: 5px 15px;
+    color: #ffbf00;
+    border: 1px solid #3a3a3a;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 10px;
+}
+/*               infomation               */
+
+.information{
+    margin-top: 30px;
+    border-top: 1px solid #3a3a3a;
+    padding-top: 20px;
+}
+.label{
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: #a0a0a0;
+}
+.value{
+    color: #e0e0e0;
+    text-decoration: none;
+}
+.email, .phone, .location{
+    margin-bottom: 15px;
+}
+/*          Social Links            */
