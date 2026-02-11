@@ -18,17 +18,20 @@ body {
     gap: 45px;
     margin: auto;
     padding-top: 40px;
+    border-radius: 10px;
 }
 
 .sidebar {
     height: 90vh;
     background-color: #2a2a2a;
     padding: 40px;
+    border-radius: 16px;
 }
 
-.content {
+.main_content {
     height: 90vh;
     background-color: #2a2a2a;
+    border-radius: 16px;
 }
 
 
@@ -75,6 +78,7 @@ body {
     font-weight: 500;
     font-size: 0.8rem;
     color: #a0a0a0;
+    user-select: none;
 }
 .value{
     color: #e0e0e0;
@@ -83,4 +87,26 @@ body {
 .email, .phone, .location{
     margin-bottom: 15px;
 }
-/*          Social Links            */
+
+
+
+/*             Social Links              */
+.social_links{
+    margin-top: 30px;
+    border-top: 1px solid #3a3a3a;
+    padding-top: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.social_links img {
+    height: 25px;
+    width: 25px;
+    margin-left: 5px;
+    cursor: pointer;
+    filter: grayscale(1) invert(0.7);
+    transition: filter 0.3s ease;
+}
+.social_links img:hover{
+    filter: grayscale(0) invert(0);
+}
