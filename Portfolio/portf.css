@@ -189,7 +189,10 @@ body {
 #education{
     margin-top: 40px;
 }
-
+.edtech{
+    position: relative;
+    margin-top: 20px;
+}
 .year{
     font-size: 0.9rem;
     color: #a0a0a0;
@@ -222,4 +225,45 @@ body {
     position: absolute;
     top: 5px;
     left: 0;
+    z-index: 999;
+}
+.liness{
+    position: absolute;
+    width: 2px;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    border: 2px solid #3a3a3a;
+}
+
+/*              Portfolio                     */
+.project_con{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.project{
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    border: 1px solid #3a3a3a;
+    overflow: hidden;
+}
+.project img{
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+}
+.card{
+    padding: 20px;
+}
+.card h3{
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+.card p{
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+.card span{
+    background-color: rgba(255, 191, 0, 0.1);
 }
